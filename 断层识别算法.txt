@@ -1,0 +1,80 @@
+z[]; // 某点处开始的深度序列 
+Dip[]; // 某点处开始的地层倾角序列
+Dir[]; // 某点处开始的倾向序列
+FaultPoints[]; // 疑似断层深度位置
+
+//预处理分组（分区间）
+preprocess(Dip, Dir, window_size = 1){
+    //以每window_size（默认为1）个数据为一组
+    smoothed_dip = dip_average(Dip, window_size) //每组window_size个数据都统一为smooth_dip 
+    smoothed_dir = dir_average(Dir, window_size) //每组window_size个数据都统一为smooth_dir
+    //计算每组数据倾向和倾角的导数（变化率）
+    dip_diff = gradient(smoothed_dip)
+    dir_diff = gradient(smoothed_dir)
+    return smoothed_dip, smoothed_dir, dip_diff, dir_diff
+}
+
+struct thresholds{
+    dip_diff_thresh //倾角变化阈值
+    dir_diff_thresh //倾向变化阈值
+    min_interval    //最小突变间隔多少米
+}
+
+struct candidate{
+   depth
+   dip_change //倾角变化大小
+   dir_change //倾向变化大小
+}
+//断层破碎带识别
+detect_fault_broken_belt(dip_diff, dir_diff，z，window = 5, thresholds){
+    candidate belt_candidates = [] //候选深度位置
+    iterator i //i从0到max_depth
+    //每个数据后连续window（默认为5）个检查
+    for i in max_depth:
+    bool dip_condition = dip_diff[i : i + window] > thresholds.dip_diff_thresh
+    dir_change = min(abs(dir_diff[i]), 360 - abs(dir_diff[i])) //选择锐角变化
+    bool dir_condition = dir_change[i : i + window] > thresholds.dir_diff_thresh
+    if(dip_condition or dir_condition){
+        belt_candidates.push(z[i], dip_change[i], dir_change[i])
+    }
+    return belt_candidates
+}
+//突变点识别
+detect_abrupt_changes(dip_diff, dir_diff, z, thresholds, belt_candidates){
+    candidate fault_candidates = []
+    iterator i //i从0到max_depth
+    for i in max_depth:
+    bool dip_condition = abs(dip_diff[i]) > thresholds.dip_diff_thresh //根据导数判断倾角突变
+    dir_change = min(abs(dir_diff[i]), 360 - abs(dir_diff[i])) //选择锐角变化
+    bool dir_condition = dir_change > thresholds.dir_diff_thresh //根据导数判断倾向突变
+    if(i not in belt_candidates){ //如果位置i不属于断层破碎带
+        fault_candidates.push(z[i], dip_diff[i], dir_change[i]) //加入断层候选
+    }
+    return fault_candidates
+}
+//断层构造识别
+validate_fault(fault_candidates, smoothed_dip, smoothed_dir, z){
+    confirmed_faults = [] //确认的断层
+    iterator i
+    for i in fault_candidates:
+    //检查上下盘反向倾向（走滑断层标志），每5个数据
+    dir_upper = smoothed_dir[i-5:i].mean()  //上盘平均倾向10个数据
+    dir_lower = smoothed_dir[i:i+5].mean()  //下盘平均倾向10个数据
+    bool is_reverse_dir = min(abs(dir_upper - dir_lower), 360 - abs(dir_upper - dir_lower)) > 90 //两盘倾向呈钝角
+    //检查牵引构造（正/逆断层标志），每5个数据
+    upper_dip_trend = linear(z[idx-5:idx], smoothed_dip[idx-5:idx]).gradient //上盘拟合线性函数并得到导数
+    lower_dip_trend = linear(z[idx:idx+5], smoothed_dip[idx:idx+5]).gradient //下盘拟合线性函数并得到导数
+    bool is_drag_fold = (upper_dip_trend * lower_dip_trend < 0) //导数相乘为负，上下盘倾角趋势相反
+    if (is_reverse_dir || is_drag_fold){
+        confirmed_faults.push(i)
+    }
+    return confirmed_faults
+}
+//主逻辑函数
+find_fault(Data){
+    smooth_dip, smooth_dir, dip_diff, dir_diff = preprocess(dip, dir)
+    belt_candidates = detect_fault_broken_belt(dip_diff, dir_diff，z，window, thresholds)
+    candidates = detect_abrupt_changes(dip_diff, dir_diff, z, params)
+    faults = validate_fault(candidates, smooth_dip, smooth_dir, z)
+    return faults
+}
