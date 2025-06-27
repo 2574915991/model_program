@@ -1,0 +1,343 @@
+\documentclass[a4paper,twoside]{ctexart}
+\usepackage{geometry}
+\geometry{margin=1cm,vmargin={0pt,1cm}}
+\setlength{\topmargin}{-2cm}
+\setlength{\paperheight}{23cm}
+\setlength{\paperwidth}{18cm}
+\setlength{\textheight}{19.6cm}
+\setlength{\textwidth}{15cm}
+\usepackage{makecell}
+%\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5em}
+
+\pagenumbering{arabic} 
+
+% useful packages.
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{xcolor,graphicx,float,subfigure}
+\usepackage{epstopdf}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{layout}
+\usepackage{listings}
+\usepackage{dsfont}
+\lstset{language=Matlab}
+\lstset{breaklines}
+\lstset{extendedchars=false}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{xcolor}
+%\usepackage{cite}
+%\usepackage[numbers,sort&compress]{natbib} 
+%\setcitestyle{open={},close={}}
+%\usepackage{natbibspacing}
+%\renewcommand{\refname}{}
+\usepackage{anyfontsize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\tikzset{
+  dot/.style={
+    circle, fill=black, inner sep=1pt, outer sep=0pt
+  },
+  dot label/.style={
+    circle, inner sep=0pt, outer sep=1pt
+  }
+  arrow1/.style = {
+    draw = black, thick, -{Latex[length = 4mm, width = 1.5mm]},
+  }
+}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{proposition}[theorem]{性质}
+\newtheorem{example}[theorem]{例子}
+\newtheorem{notation}[theorem]{记号}
+\newtheorem{algorithm}[theorem]{算法}
+
+
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\difFrac}[2]{\frac{\dif #1}{\dif #2}}
+\newcommand{\pdfFrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\OFL}{\mathrm{OFL}}
+\newcommand{\UFL}{\mathrm{UFL}}
+\newcommand{\fl}{\mathrm{fl}}
+\newcommand{\op}{\odot}
+\newcommand{\Eabs}{E_{\mathrm{abs}}}
+\newcommand{\Erel}{E_{\mathrm{rel}}}
+
+\newcommand{\Zero}{\hat{0}}
+\newcommand{\One}{\hat{1}}
+\newcommand{\Int}{\mathrm{int}}
+\newcommand{\unitV}{\mathds{1}}
+
+\newcommand{\bmi}{\mathbf{i}}
+\newcommand{\bmj}{\mathbf{j}}
+\newcommand{\bmn}{\mathbf{n}}
+
+\newcommand{\dist}[2]{\text{dist}\left(#1, #2\right)}
+\newcommand{\scientific}[2]{#1 \times 10^{#2}}
+
+
+%\newcommand{\Dim}{{\mathbf{D}}}
+\newcommand{\Dim}{{\scriptsize \textsf{D}}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\mi}{\mathrm{i}}
+
+%\newcommand{\mod}{\mathrm{mod}}
+\newcommand{\curve}[1]{\widetilde{#1}}
+%\newcommand{\dt}{\delta t}
+\newcommand{\dt}{\tau}
+\newcommand{\isCovered}{\mathbin{ < \! \! \! \! \cdot }}
+%\newcommand{\cIncluded}{\mathbin{ \prec \! \! \! \cdot }}
+\newcommand{\coveredBy}{\lhd}
+%\newcommand{\regrz}[1]{\mathrm{cl}\left(\mathrm{int}\left(#1\right)\right)}
+\newcommand{\regrz}[1]{\mathrm{reg}\left(#1\right)}
+%\newcommand{\sgncup}{\ \hat{\cup} \ }
+\newcommand{\Span}{\mathrm{span}}
+\newcommand{\timeline}[2]{\phi_{t_0}^{#1}\left( #2 \right)}
+\newcommand{\timeBP}[1]{\overleftarrow{#1}}
+\newcommand{\timeBPA}[1]{\mathring{\overleftarrow{#1}}}
+\newcommand{\streak}[2]{\Psi_{t_0}^{#1}\left(#2\right)}
+\newcommand{\timelineA}[2]{\mathring{\phi}_{t_0,#2}^{#1}}
+\newcommand{\DRLN}[1]{{\cal D}_{\curve{#1}}}
+\newcommand{\DRLLN}[1]{{\cal D}_{\overline{#1}}}
+\newcommand{\DRLNA}[1]{\mathring{\cal D}_{\curve{#1}}}
+%\newcommand{\oplusDR}{\,\overline{\oplus}\,}
+\newcommand{\oplusDR}{\,\bar{\oplus}\,}
+\newcommand{\qo}{\hat{q}}
+\newcommand{\xo}{\hat{x}}
+\newcommand{\yo}{\hat{y}}
+\newcommand{\closure}[1]{\textrm{cl}\left(#1\right)}
+\newcommand{\vertexSequence}[4]{
+  \left( #1 \rightarrow #2 \rightarrow #3 \rightarrow #4 \rightarrow #1\right)}
+
+\newcommand{\ppSpace}{\Pi_{<\kappa,\bm{\xi},\bm{\nu}}}
+\newcommand{\pnSpace}{\mathbb{P}_{<\kappa}}
+\newcommand{\pnSpaceK}[1]{\mathbb{P}_{#1}}
+
+\newcommand{\Pyr}[2]{\textrm{Pyr}_{\cal{#1}}\left(\mathbf{#2}\right)}
+
+%\pagestyle{plain}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\textbf{\thepage}}
+
+\makeatletter
+\newcommand\sixteen{\@setfontsize\sixteen{17pt}{6}}
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+\sixteen\bfseries \@title
+\medskip
+\end{flushleft}
+\textit{\@author}
+\egroup}
+\makeatother
+
+\CTEXsetup[format={\Large\bfseries}]{section}
+
+\title{岩石力学调研报告}
+
+\begin{document}
+\maketitle
+
+\section{岩石力学的背景与应用}
+岩石力学是研究岩石在外力作用下的变形、破坏及应力分布规律的学科，核心目
+标是为能源开发（如页岩气、地热）、矿山工程、地质灾害防治等提供理论支持。
+其研究内容包括：
+\begin{itemize}
+\item \textbf{地应力场}：受构造运动、自重应力、孔隙压力等因素影响，
+  深层页岩气藏（如四川盆地龙马溪组）常呈现“四高”特征（高地应力、高水
+  平应力差、高塑性、高地层压力）。
+\item \textbf{天然裂缝与断层}：裂缝发育程度、填充物性质（方解石、黄铁
+  矿等）及断层机制（走滑、逆冲）直接影响储层改造效果。 
+\item \textbf{工程挑战}：深层页岩气开发面临套变、压窜、改造体积不足等
+  问题，需通过岩石力学模型优化钻井和压裂设计。 
+\end{itemize}
+岩石力学的应用领域也十分广泛，例如：
+\begin{itemize}
+\item \textbf{油气开发：}
+  \begin{itemize}
+  \item \textbf{地应力建模}：建立一维/三维地应力场（如永川五峰-龙马溪
+    组模型），分析断层、背斜对地应力的影响。 
+  \item \textbf{井壁稳定性}：基于摩尔-库伦准则，评估钻井液密度对井壁坍
+    塌或破裂风险的影响。
+  \item \textbf{水力压裂优化}：模拟裂缝扩展路径，结合天然裂缝分布优化
+    压裂参数（泵注程序、支撑剂分布）。
+  \end{itemize}
+\item \textbf{工程安全分析}：预测岩体滑坡、隧道围岩变形等地质灾害。
+\end{itemize}
+
+\section{岩石力学的主要方程}
+在问题区域$\Omega$中应力、应变、位移变量满足以下几个方程：
+
+\subsection{本构关系（物理方程）}
+描述应力-应变关系的广义胡克定律为：
+\begin{align}
+  \label{eq:Stress-StrainEq}
+  \left\{
+  \begin{aligned}
+    \sigma_x &= \frac{E}{(1+\nu)(1-2\nu)} \left[ (1-\nu)\epsilon_x + \nu(\epsilon_y + \epsilon_z) \right], \\
+    \sigma_y &= \frac{E}{(1+\nu)(1-2\nu)} \left[ (1-\nu)\epsilon_y + \nu(\epsilon_x + \epsilon_z) \right], \\
+    \sigma_z &= \frac{E}{(1+\nu)(1-2\nu)} \left[ (1-\nu)\epsilon_z + \nu(\epsilon_x + \epsilon_y) \right], \\
+    \tau_{xy} &= \frac{E}{2(1+\nu)} \gamma_{xy}, \quad \tau_{yz} =
+    \frac{E}{2(1+\nu)} \gamma_{yz}, \quad \tau_{zx} =
+    \frac{E}{2(1+\nu)} \gamma_{zx},
+  \end{aligned}
+         \right.
+\end{align}
+其中$E$为弹性模量，$\nu$为泊松比，$G$为剪切模量，左侧六个变量为应力分
+量，右侧六个分量为应变分量，均为未知量。
+
+\subsection{平衡微分方程}
+假设研究的岩体是连续的，且岩体是受力平衡满足小变形条件的，则作用在岩体
+各个方向上的合力为0：
+\begin{align}
+ \label{eq:EquilibriumEq}
+  \left\{
+  \begin{aligned}
+    \frac{\partial \sigma_x}{\partial x} + \frac{\partial
+      \tau_{xy}}{\partial y} + \frac{\partial \tau_{xz}}{\partial z} +
+    f_x
+    &= 0, \\
+    \frac{\partial \tau_{xy}}{\partial x} + \frac{\partial
+      \sigma_y}{\partial y} + \frac{\partial \tau_{yz}}{\partial z} +
+    f_y
+    &= 0, \\
+    \frac{\partial \tau_{xz}}{\partial x} + \frac{\partial
+      \tau_{yz}}{\partial y} + \frac{\partial \sigma_z}{\partial z} +
+    f_z &= 0,
+  \end{aligned}
+    \right.
+\end{align}
+其中$f_x,f_y,f_z$分别为作用在单元上各个方向的外力。
+
+\subsection{几何方程（连续方程）}
+小变形下的应变与位移关系如下：
+\begin{align}
+  \label{eq:KinematicEq}
+  \left\{
+  \begin{aligned}
+    \epsilon_x &= \frac{\partial u}{\partial x}, \quad \epsilon_y =
+    \frac{\partial v}{\partial y}, \quad
+    \epsilon_z = \frac{\partial w}{\partial z}, \\
+    \gamma_{xy} &= \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}, \\
+    \gamma_{yz} &= \frac{\partial v}{\partial z} + \frac{\partial w}{\partial y}, \\
+    \gamma_{zx} &= \frac{\partial w}{\partial x} + \frac{\partial
+      u}{\partial z}.
+  \end{aligned}
+  \right.
+\end{align}
+
+根据(\ref{eq:Stress-StrainEq})和~(\ref{eq:KinematicEq})，应力分量和应
+变分量均可以由位移量$(u,v,w)$表示，代入~(\ref{eq:EquilibriumEq})中可得：
+
+\begin{align}
+  \left\{
+  \begin{aligned}
+    & E_1(1-\nu)\frac{\partial^2 u}{\partial x^2} +
+    G\left(\frac{\partial^2 u}{\partial y^2} +
+    \frac{\partial^2 u}{\partial z^2} \right) +
+    (E_1\nu+G) \left(\frac{\partial^2 v}{\partial x\partial y} +
+      \frac{\partial^2 w}{\partial x\partial z} \right) = f_x\\
+    & E_1(1-\nu)\frac{\partial^2 v}{\partial y^2} +
+    G\left(\frac{\partial^2 v}{\partial x^2} +
+    \frac{\partial^2 v}{\partial z^2} \right) +
+    (E_1\nu+G) \left(\frac{\partial^2 u}{\partial x\partial y} +
+      \frac{\partial^2 w}{\partial y\partial z} \right) = f_y \\
+    & E_1(1-\nu)\frac{\partial^2 w}{\partial z^2} +
+    G\left(\frac{\partial^2 w}{\partial x^2} +
+    \frac{\partial^2 w}{\partial y^2} \right) +
+    (E_1\nu+G) \left(\frac{\partial^2 u}{\partial x\partial z} +
+      \frac{\partial^2 v}{\partial y\partial z} \right)  = f_z
+  \end{aligned}
+  \right.
+\end{align}
+
+\subsection{边界条件}
+常用的三种边界条件分别为位移边界条件，应力边界条件以及混合边界条件。
+
+位移边界条件为在边界$\partial \Omega$上给定位移的分布：
+\begin{equation}
+  x = \overline{x},\ y = \overline{y},\ z = \overline{z}. 
+\end{equation}
+
+应力边界条件为在边界上给定外力的分布，通过应力张量与表面法向量表示：
+\begin{align}
+  \left\{
+  \begin{aligned}
+    \sigma_x l + \tau_{xy} m + \tau_{xz} n &= \overline{t}_x, \\
+    \tau_{yx} l + \sigma_{y} m + \tau_{yz} n &= \overline{t}_y, \\
+    \tau_{zx} l + \tau_{zy} m + \sigma_{z} n &= \overline{t}_z,
+  \end{aligned}
+  \right.
+\end{align}
+其中$l,m,n$分别为边界法向量在各方向的方向余弦，
+$\overline{t}_x,\overline{t}_y,\overline{t}_z$分别为边界上的表面力
+分量。
+
+混合边界条件则为在边界上同时存在应力约束和位移约束。
+
+\section{岩石力学中的数值方法}
+
+\subsection{有限差分以及有限体积法}
+
+有限差分和有限体积方法最早广泛应用于求解偏微分方程的数值方法之一，在边
+坡稳定、构造过程、岩体表征及流体-力学耦合问题中均有重要应用。
+
+传统有限差分和有限体积方法优势在于能模拟复杂非线性材料行为而无需迭代求
+解。 然而这些方法使用规则网格使得其在模拟岩石非规则几何形态、非
+均匀特性及复杂边界条件时存在明显不足，因此广义有限差分以及有限体积方法
+引入三角形、任意四边形或Voronoi单元等非结构网格，使其可以处理材料非均
+匀性，可为不同有限体积赋予不同材料属性。
+
+然而，相邻节点间的连续性要求仍然限制了裂缝扩展的模拟，这是有限差分和有
+限体积方法的主要缺陷。尽管可通过节点或单元中心的材料失效来模拟断裂过程，
+但无法真实反映裂缝扩展行为。尽管如此，它们仍是岩石力学中应用最广泛的数
+值方法之一， 最具代表性的FDM/FVM商业软件当属FLAC/FLAC3D [10]。
+
+\subsection{有限元方法}
+
+作为首个能考虑材料非均匀性、非线性、复杂几何与边界条件的数值方法，FEM
+迅速成为岩石力学领域的主流数值工具——尤其当传统有限差分法(FDM)受限于规
+则网格时，FEM的优势更加凸显。Zienkiewicz和Bathe的奠基性工作 [13] 推动
+了该方法在1970年代末至1980年代初的快速发展，大量岩石力学问题通过FEM得
+以求解[15]。经过持续发展，FEM至今仍是模拟岩石与土体非线性、时变和各
+向异性行为最广泛应用的数值方法。
+
+FEM的核心优势之一在于能表征非均匀岩体——通过为不同有限元赋予差异化材料
+属性实现。目前存在多种单元类型（包括一维、二维和三维情形），其中"无限
+元"[18]专为岩土工程远场模拟而设计。然而，受连续介质假设限制，传统
+FEM在破坏分析、裂纹扩展及非连续效应模拟方面存在局限。针对岩石的非连续
+特性，学界通过多种改进方法提升FEM的适用性。
+
+有限元法除擅长处理非均质材料和非规则网格外，在表征各类非线性与非弹性力
+学行为方面亦展现出卓越性能。这一优势推动着本构模型研究持续发展，目前已
+建立多种描述材料硬化/软化行为的模型体系。其中，基于损伤理论[53]的模
+型和岩石塑性模型[56]构成模拟材料非线性与非弹性响应的主要理论框架。
+此外，FEM在几何非线性、接触力学、流固耦合、跨尺度建模（从纳米/微观尺度
+至宏观大尺度）等领域均表现出显著优势。这些技术特性使FEM稳居岩石力学数
+值方法应用首位，而广义化与增强型FEM更凭借其无需重新划分网格的裂缝模拟
+能力，进一步拓展了该方法的应用边界。在商业软件领域，PLAXI作为专为
+岩土工程开发的有限元分析平台，在岩石力学问题求解中具有重要地位。 
+
+
+\bibliographystyle{plain}
+\bibliography{references.bib}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

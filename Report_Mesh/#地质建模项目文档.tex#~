@@ -1,0 +1,532 @@
+\documentclass[a4paper,twoside]{ctexart}
+\usepackage{geometry}
+\geometry{margin=1cm,vmargin={0pt,1cm}}
+\setlength{\topmargin}{-2cm}
+\setlength{\paperheight}{23cm}
+\setlength{\paperwidth}{18cm}
+\setlength{\textheight}{19.6cm}
+\setlength{\textwidth}{15cm}
+\usepackage{makecell}
+%\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5em}
+
+\pagenumbering{arabic} 
+
+% useful packages.
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{xcolor,graphicx,float,subfigure}
+\usepackage{epstopdf}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{layout}
+\usepackage{listings}
+\usepackage{dsfont}
+\lstset{language=Matlab}
+\lstset{breaklines}
+\lstset{extendedchars=false}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage{xcolor}
+%\usepackage{cite}
+%\usepackage[numbers,sort&compress]{natbib} 
+%\setcitestyle{open={},close={}}
+%\usepackage{natbibspacing}
+%\renewcommand{\refname}{}
+\usepackage{anyfontsize}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\tikzset{
+  dot/.style={
+    circle, fill=black, inner sep=1pt, outer sep=0pt
+  },
+  dot label/.style={
+    circle, inner sep=0pt, outer sep=1pt
+  }
+  arrow1/.style = {
+    draw = black, thick, -{Latex[length = 4mm, width = 1.5mm]},
+  }
+}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{proposition}[theorem]{性质}
+\newtheorem{example}[theorem]{例子}
+\newtheorem{notation}[theorem]{记号}
+\newtheorem{algorithm}[theorem]{算法}
+
+
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\difFrac}[2]{\frac{\dif #1}{\dif #2}}
+\newcommand{\pdfFrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\OFL}{\mathrm{OFL}}
+\newcommand{\UFL}{\mathrm{UFL}}
+\newcommand{\fl}{\mathrm{fl}}
+\newcommand{\op}{\odot}
+\newcommand{\Eabs}{E_{\mathrm{abs}}}
+\newcommand{\Erel}{E_{\mathrm{rel}}}
+
+\newcommand{\Zero}{\hat{0}}
+\newcommand{\One}{\hat{1}}
+\newcommand{\Int}{\mathrm{int}}
+\newcommand{\unitV}{\mathds{1}}
+
+\newcommand{\bmi}{\mathbf{i}}
+\newcommand{\bmj}{\mathbf{j}}
+\newcommand{\bmn}{\mathbf{n}}
+
+\newcommand{\dist}[2]{\text{dist}\left(#1, #2\right)}
+\newcommand{\scientific}[2]{#1 \times 10^{#2}}
+
+
+%\newcommand{\Dim}{{\mathbf{D}}}
+\newcommand{\Dim}{{\scriptsize \textsf{D}}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\mi}{\mathrm{i}}
+
+%\newcommand{\mod}{\mathrm{mod}}
+\newcommand{\curve}[1]{\widetilde{#1}}
+%\newcommand{\dt}{\delta t}
+\newcommand{\dt}{\tau}
+\newcommand{\isCovered}{\mathbin{ < \! \! \! \! \cdot }}
+%\newcommand{\cIncluded}{\mathbin{ \prec \! \! \! \cdot }}
+\newcommand{\coveredBy}{\lhd}
+%\newcommand{\regrz}[1]{\mathrm{cl}\left(\mathrm{int}\left(#1\right)\right)}
+\newcommand{\regrz}[1]{\mathrm{reg}\left(#1\right)}
+%\newcommand{\sgncup}{\ \hat{\cup} \ }
+\newcommand{\Span}{\mathrm{span}}
+\newcommand{\timeline}[2]{\phi_{t_0}^{#1}\left( #2 \right)}
+\newcommand{\timeBP}[1]{\overleftarrow{#1}}
+\newcommand{\timeBPA}[1]{\mathring{\overleftarrow{#1}}}
+\newcommand{\streak}[2]{\Psi_{t_0}^{#1}\left(#2\right)}
+\newcommand{\timelineA}[2]{\mathring{\phi}_{t_0,#2}^{#1}}
+\newcommand{\DRLN}[1]{{\cal D}_{\curve{#1}}}
+\newcommand{\DRLLN}[1]{{\cal D}_{\overline{#1}}}
+\newcommand{\DRLNA}[1]{\mathring{\cal D}_{\curve{#1}}}
+%\newcommand{\oplusDR}{\,\overline{\oplus}\,}
+\newcommand{\oplusDR}{\,\bar{\oplus}\,}
+\newcommand{\qo}{\hat{q}}
+\newcommand{\xo}{\hat{x}}
+\newcommand{\yo}{\hat{y}}
+\newcommand{\closure}[1]{\textrm{cl}\left(#1\right)}
+\newcommand{\vertexSequence}[4]{
+  \left( #1 \rightarrow #2 \rightarrow #3 \rightarrow #4 \rightarrow #1\right)}
+
+\newcommand{\ppSpace}{\Pi_{<\kappa,\bm{\xi},\bm{\nu}}}
+\newcommand{\pnSpace}{\mathbb{P}_{<\kappa}}
+\newcommand{\pnSpaceK}[1]{\mathbb{P}_{#1}}
+
+\newcommand{\Pyr}[2]{\textrm{Pyr}_{\cal{#1}}\left(\mathbf{#2}\right)}
+
+%\pagestyle{plain}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\textbf{\thepage}}
+
+\makeatletter
+\newcommand\sixteen{\@setfontsize\sixteen{17pt}{6}}
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+\sixteen\bfseries \@title
+\medskip
+\end{flushleft}
+\textit{\@author}
+\egroup}
+\makeatother
+
+\CTEXsetup[format={\Large\bfseries}]{section}
+
+\title{二维地质建模项目文档}
+
+\begin{document}
+\maketitle
+
+\section{项目背景}
+
+测井技术作为地下地质信息获取的核心手段，通过井孔内岩石物理参数（如电阻
+率、声波速度、放射性等）的精密测量，为油气勘探、地质构造解析及水文工程
+提供了关键数据支撑。
+现代井壁成像仪器（如声电成像仪等）已能对井周地层进行可视化扫
+描，精准识别层理、裂缝及溶蚀孔洞等微观结构，并生成包含岩层产状（倾向、
+倾角、走向）的高分辨率数据。 
+然而，传统建模方法依赖的离散化井周局部信息仅能反映井眼附近的构造特征，
+无法准确预测地层的延伸规律。尤其在挤压或伸展构造区（如褶皱转折端），基
+于平行层假设的建模方法因忽略地层厚度变化、岩层旋转等动态特征，导致储层
+几何形态误差增大，严重制约复杂构造区的资源评价精度。
+针对上述问题，本项目提出一种基于蛛网算法的新型建模框架，构建符合地质力
+学规律的地质模型，为复杂构造区的资源勘探与开发提供高精度地质模型支撑。
+
+\section{预备知识}
+\label{sec:Preliminary}
+
+\subsection{地层构造}
+
+\subsubsection{褶皱构造}
+\textbf{褶皱构造}是岩层在构造应力（如挤压）作用下发生的弯曲变形。反映
+区域水平挤压作用，常见于造山带，是油气储集的重要构造。基于形态特征分为
+以下三类： 
+\begin{enumerate}
+\item \textbf{背斜（Anticline）：}岩层向上拱起，核心部位为老地层。
+\item \textbf{向斜（Syncline）：}岩层向下弯曲，核心部位为新地层。
+\item \textbf{单斜（Monocline）：}岩层向单一方向倾斜的平缓弯曲。
+\end{enumerate}
+
+ \begin{figure}[htbp]
+  \centering
+  \subfigure[背斜和向斜构造]{
+    \includegraphics[width=0.35\textwidth]{pic/背斜和向斜.png}
+  }
+  \hspace{2cm}
+  \subfigure[单斜构造]{
+    \includegraphics[width=0.35\textwidth]{pic/单斜构造.png}}
+  
+  \caption{不同形态特征的褶皱构造}
+  \label{fig:不同形态特征的褶皱构造}
+\end{figure}
+
+基于几何模式可以分为以下两类：
+\begin{enumerate}
+\item \textbf{相似褶皱（similar fold）}中各岩层成相似弯曲，即其曲率半
+  径大致相等，但没有共同的曲率中心，故褶皱形态在一定深度内保持不变。同
+  一岩层的真厚度在翼部变薄、在转折端加厚,但顺轴面方向的视厚度在褶皱的
+  不同部位大致相等，图~\ref{fig:相似褶皱}中不同部位黑色竖线大致相等。
+\item \textbf{平行褶皱（parallel fold）}是一种褶皱几何模式。组成褶皱的
+  各褶皱面作平行弯曲，同一褶皱层的厚度保持不变，所以也称为等厚褶皱；弯
+  曲的各层具有同一曲率中心，所以又称同心褶皱，图~\ref{fig:平行褶皱}中与层面线垂直的黑色竖线大致相等。 
+\end{enumerate}
+
+ \begin{figure}[htbp]
+  \centering
+  \subfigure[相似褶皱]{
+    \label{fig:相似褶皱}
+    \includegraphics[width=0.35\textwidth]{pic/相似褶皱.png}
+  }
+  \hspace{2cm}
+  \subfigure[平行褶皱]{
+    \label{fig:平行褶皱}
+    \includegraphics[width=0.35\textwidth]{pic/等厚褶皱.png}}
+  
+  \caption{不同几何模式的褶皱构造}
+  \label{fig:不同几何模式的褶皱构造}
+\end{figure}
+
+\subsection{断层构造}
+
+\textbf{断层构造}为岩层因构造应力发生破裂并沿破裂面发生明显位移。可分
+为以下三类：
+\begin{enumerate}
+\item \textbf{正断层（Normal Fault）：}受拉张力作用，上盘相对下降。
+\item \textbf{逆断层（Reverse Fault）：}受挤压力作用，上盘相对上升。
+\item \textbf{走滑断层（Strike-Slip Fault）：}两盘沿断层走向水平滑动。
+\end{enumerate}
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{pic/断层示意图.png}
+  \caption{断层示意图}
+  \label{fig:断层示意图}
+\end{figure}
+
+描述断层需要以下两个要素：
+
+\begin{enumerate}
+\item \textbf{断盘：}断层面两侧发生相对位移的岩体，称为断（层）盘。当
+  断层面倾斜时，位于断层面上方的称为上盘，下方的称为下盘；
+  当断层面近于直立时，则以方位相称，如东盘、西盘等；
+  也可根据两盘相对移动的关系，把相对上升的称为上升盘，把相对下降的称为
+  下降盘。 
+\item \textbf{断距：}断层两盘岩体沿断层面发生相对滑动的距离。断距的大
+  小常常是衡量断层规模的重要标志，断距又分为总断距（地层断距）、水平地
+  层断距及垂（铅）直地层断距。 
+\end{enumerate}
+
+ \begin{figure}[htbp]
+  \centering
+  \subfigure[断层面]{
+    \label{fig:断层面}
+    \includegraphics[width=0.4\textwidth]{pic/断层面.png}
+  }
+  \hspace{2cm}
+  \subfigure[断层滑距和断距]{
+    \label{fig:断层滑距和断距}
+    \includegraphics[width=0.4\textwidth]{pic/断层滑距和断距.png}}
+  
+  \caption{描述断层所需要素}
+  \label{fig:描述断层所需要素}
+\end{figure}
+
+\subsection{岩层产状}
+
+
+岩层产状是指即岩层的产出状态，由地层倾角、走向和倾向构成岩层在空间产出
+的状态和方位的总称。现有的测井工具可以直接得到各个深度的岩层产状以及井
+斜数据，其中：
+\begin{itemize}
+\item \textbf{地层倾角：}层面上的倾斜线和它在水平面上投影的夹角，也称真
+  倾角，倾角的大小表示岩层的倾斜程度。
+  视倾斜线和它在水平面上投影的夹角称\textbf{视倾角}。
+  真倾角只有一个，而视倾角可有无数个，任何一个视倾角都小于该层面的真倾
+  角。
+
+  图\ref{fig:真倾角和视倾角}中记$ABCD$ 为地层层面，$ABEF$ 为水平面，$AB$、
+  $CD$ 为走向线，$AFD$ 面为与走向垂直的断面，$\alpha$表示真倾角，$BD$
+  作为视倾斜线则$\gamma$为视倾角。
+  \begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.45\textwidth]{pic/真倾角和视倾角.png}
+  \caption{真倾角和视倾角}
+  \label{fig:真倾角和视倾角}
+\end{figure}
+
+\item \textbf{方位角：}平面上度量物体之间的角度差的方法之一，
+  又称地平经度(Azimuth angle，缩写为Az)。是从某点的指北方向线起，依顺
+  时针方向 到目标方向线之间的水平夹角。
+  \begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.4\textwidth]{pic/太阳方位角.png}
+  \caption{方位角}
+  \label{fig:方位角}
+\end{figure}
+
+方位角一般用倾向和倾角表示 ，如
+  $SW205^{\circ} \angle 65^{\circ}$，即倾向为南西205度，倾角65度，其走
+  向则为$NW295^{\circ}$或$SE115^{\circ}$（通常取$115^{\circ}$）。
+  
+\item \textbf{走向：}岩层层面与任一假想水平面的交线称走向线，也就是同
+  一层面上等 
+  高两点的连线。走向线两端延伸的方向称岩层的走向，岩层的走向也有两个方
+  向，彼此相差180度，通常用小于180度的方位角表示。岩层的走向表示岩层在
+  空间的水平延伸方向。
+
+\item \textbf{倾向：}层面上与走向线垂直并沿斜面向下所引的直线叫倾斜线，
+  它表示岩层的最大坡度；倾斜线在水平面上的投影所指示的方向称岩层的倾向，
+  又叫真倾向，真倾向只有一个，倾向表示岩层向哪个方向倾斜。
+
+\begin{figure}[htbp]
+  \centering
+  \subfigure[岩层产状]{
+    \label{fig:岩层产状}
+    \includegraphics[width=0.4\textwidth]{pic/岩层产状.png}
+  }
+  \hspace{2cm}
+  \subfigure[岩层产状示例]{
+    \label{fig:岩层产状示例}
+    \includegraphics[width=0.4\textwidth]{pic/岩层产状示例.png}}
+  
+  \caption{岩层产状及其示例}
+  \label{fig:岩层产状及其示例}
+\end{figure}
+
+\item \textbf{井轨迹水平投影：}将钻井轨迹投影到水平面上。
+\item \textbf{井斜角：}井斜角是钻井专业术语，又叫井斜，通常定义为井眼
+  轴线上某点的切线与铅垂线的夹角。 
+\item \textbf{井斜方位角：}井眼轴线的切线在水平投影面上的方向。以正北
+  方向线为始边顺时针转至该水平投影线之间所夹的角度来表示。
+
+  \begin{figure}[htbp]
+  \centering
+  \subfigure[井轨迹投影]{
+    \label{fig:井轨迹投影}
+    \includegraphics[width=0.4\textwidth]{pic/井轨迹投影.png}
+  }
+  \hspace{2cm}
+  \subfigure[井斜角和井斜方位角]{
+    \label{fig:井斜角和井斜方位角}
+    \includegraphics[width=0.4\textwidth]{pic/井斜角和井斜方位角.png}}
+  
+  \caption{井斜相关概念}
+  \label{fig:井斜相关概念}
+\end{figure}
+\end{itemize}
+
+\subsection{极射赤平投影与吴氏网}
+
+\subsubsection{极射赤平投影}
+极射赤平投影是一种以球面投影为基础的几何方法，通过将三维空间中的方向、
+平面或线投影到一个参考平面（通常为赤道平面），形成二维图形，保留原始结
+构的空间关系。 
+在未说明的情况下默认使用上极射点发出射线，
+例如图\ref{fig:极射赤平投影图}中线$PB$投影到赤平面上为$OB'$，
+将倾斜面$NBS$与球面的无数个交点与$P$点连成直线
+并投影到赤平面得到弧线$NB'S$。   
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.55\textwidth]{pic/级射赤平投影图.png}
+  \caption{极射赤平投影图}
+  \label{fig:极射赤平投影图}
+\end{figure}
+
+\subsubsection{吴氏网}
+
+吴氏网（立体网）是一种基于等角极射赤平投影的网格工具，用于将三维空间中
+的方向、平面和线投影到二维平面上，同时保持原始角度关系不变。
+图\ref{fig:极射赤平投影得到吴氏网}(A)中吴氏网的经线可以用
+图\ref{fig:极射赤平投影得到吴氏网}(B)的下半圆球面与过圆心的倾斜大圆
+（倾斜面）的交点形成的直线投影在赤平面（图B中的半球切面）投出的无数个
+点形成弧线得到。 
+同理，吴氏网的纬线可由下半圆球面与不过圆心的直立小圆的交点形成的直线投
+影在赤平面投出的无数个点形成弧线得到。
+之后，从N向顺时针360度标方位，经线弧$NES$到弧$NS$之间的一系列弧线分别
+表示倾斜平面倾角0度到90度，
+经线弧$NWS$到弧$NS$之间的一系列弧线也分别表示倾斜平面倾角0度到90度。   
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{pic/极射赤平投影得到吴氏网.png}
+  \caption{极射赤平投影得到吴氏网}
+  \label{fig:极射赤平投影得到吴氏网}
+\end{figure}
+
+\subsubsection{利用吴氏网进行极射赤平投影}
+
+图\ref{fig:利用吴氏网进行极射赤平投影}为倾斜面$NDS$与倾斜面法线（法向
+量）$OF$的极射赤平投影示例：
+法线$OF$投影到赤平面上得到该倾斜面$NSD$的极点$F'$， 
+$D'E$表 示倾斜面倾角大小$40^{\circ}$（B图弧$ND'S$对应吴氏网
+$40^{\circ}$经线），同理$WF'$表示法线倾角大小为$50^{\circ}$（$WE$处的
+纬线与$50^{\circ}$经线交点）。 
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{pic/平面法向量直线投影.png}
+  \caption{利用吴氏网进行极射赤平投影}
+  \label{fig:利用吴氏网进行极射赤平投影}
+\end{figure}
+
+\subsection{构造轴线与构造剖面}
+
+\subsubsection{构造轴线}
+
+褶皱的构造轴线又叫\textbf{褶皱轴（Fold Axis）}，为褶皱中岩层弯曲的枢纽
+线（枢纽的延伸方向）。
+\textbf{轴面（Axial Plane）}为平分褶皱两翼的假想平面，枢纽线通常位于轴
+面内，如图\ref{fig:褶皱构造图示}所示：
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.6\textwidth]{pic/褶皱构造图示.png}
+  \caption{褶皱构造图示}
+  \label{fig:褶皱构造图示}
+\end{figure}
+
+\subsubsection{构造轴线与投影平面计算}
+\label{sec:构造轴线与投影平面计算}
+单斜构造的构造轴线通常是走向线，断层的构造轴线是断层带的主破裂
+面走向线或多条断层的平均走向线，投影平面与构造轴线垂直。
+
+枢纽线水平的褶皱构造可使用$\pi$图法确定构造轴线：
+\begin{enumerate}
+\item 从数据中得到褶皱上多处切平面的产状，并根据产状得到各切平
+  面法向量（$P_i$）在赤平面上的投影点。
+\item 使用最小二乘法将多个法向量的投影点在赤平面上拟合一个大圆，该大圆
+  对应的平面即是投影面（$\pi$圆面），该投影面法向量为构造轴线$\beta$在
+  赤平面上投影为一个点。
+\end{enumerate}
+
+后续将该投影面或与其平行的平面作为二维地质构造剖面（二维
+   构造剖面为地质体内部构造特征、岩性分布及地质事件序列的图解模型）
+ \begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.8\textwidth]{pic/图解法求褶皱枢纽.png}
+  \caption{$\pi$图法计算褶皱枢纽示例}
+  \label{fig:图解法求褶皱枢纽}
+\end{figure}
+
+\subsection{蛛网法}
+\label{sec:蛛网法}
+蛛网法可以根据给定岩层产状和构造轴线来生成二维构造剖面，其主要步骤分为
+以下几步：
+\begin{enumerate}
+\item 根据井筒轨迹上的倾角数据生成导向网，初始导向网由相邻两倾角的垂线的
+  平分线构成，这些平分线位于两倾角的中点处，见图\ref{fig:蛛网法}(b)。
+  为了在下一步中最大限度地利用输入数据延伸地层，还在初始网集中额外加入
+  了最顶端和最底端倾角的垂线。初始经向丝的数量等于初始倾角数加一。
+  导向网的构建则通过以下迭代合并这些初始经向丝来完成：
+  \begin{enumerate}[步骤1:]
+  \item 在当前的经向丝集合$T_{1}, T_{2}, T_{3}, \ldots, T_{N}$中，计算
+    每对相邻丝$T_{n}$与$T_{n+1}$的所有交点$I_{1}, I_{2}, I_{3},
+    \ldots, I_{N+1} $，见图\ref{fig:蛛网法}(c)。 
+  \item 在这些交点中，找到距离井筒最近的交点$I_{n}$，
+    见图\ref{fig:蛛网法}(c)中圈出的交点。
+  \item 在该交点处停止经向丝$T_{n}$和$T_{n+1}$的延伸，并从此交点开始生
+    成一条新的经向丝$T_{\text {new }}$，新生成的经向丝方向定义为位于
+    $T_n$上方倾角和$T_{n+1}$下方倾角的垂线的平分线（这里n从上到下排序）。
+    见图\ref{fig:蛛网法}(d)。 
+  \item 更新经向丝集合：移除$T_{n}$和$T_{n+1}$，并将新生成的$T_{\text
+      {new }}$加入集合。 
+  \item 当不再出现新的交点，或集合内仅剩一条经向丝时，迭代结束，见图
+    \ref{fig:蛛网法}(g)。
+  \end{enumerate}
+  \item  
+    这些经向丝将二维平面划分为若干区域，每个区域包含一个倾角。
+    各倾角将在其对应区域内延伸，当延伸线达到区域边界时，便继
+    续延伸，但此后使用下一区域的倾角，见图\ref{fig:蛛网法}(h)。
+  \end{enumerate}
+  该方法对于垂直井中包含平行褶皱的平行层构建以及水平井中的单斜构造都非
+  常有效。
+
+ \begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.8\textwidth]{pic/蛛网法.png}
+  \caption{蛛网法示例}
+  \label{fig:蛛网法}
+\end{figure}
+
+
+\section{项目契约}
+
+目前第一步的目标是针对单斜构造构建二维地质剖面，长远目标为针对任意构造
+构建二三维地质剖面。
+
+\begin{itemize}
+\item \textbf{初步目标的输入数据：}一份垂直井的测井数据，其中包括以下
+  几列：
+  DEPT（垂深），DEVI（井斜角），DPAZ（地层倾角倾向），
+  DPTR（地层倾角角度），HAZI（水平方位角），
+  TYPE(地层构造类型)。另外用户也可以自定义的构造轴线，若缺省则默认
+  根据按照章节\ref{sec:构造轴线与投影平面计算}计算构造轴线。
+\item \textbf{初步目标的输出数据：} 二维单斜地质剖面图。
+\end{itemize}
+
+\section{技术路线}
+
+算法总体框架主要分为以下几部分：
+
+\subsection{预处理测井数据}
+
+针对给定的测井数据，要进行以下处理：
+\begin{enumerate}
+\item 将地层倾角或倾向突然发生剧烈变化（超过10度）的深度点记为突变点，
+ 如果有连续5个以上的深度点均为突变点，则将该区域记为断层破碎带区域。
+\item 针对其他的突变点，考虑其上下深度点处的地层倾角和倾向的差距，
+\end{enumerate}
+
+\begin{enumerate}
+\item 数据过滤：对地层倾角进行平滑处理，过滤掉急剧变化的倾角，比如和前
+  后倾角相差超过5度的倾角数据；
+\item 分区和模型选择： 根据立体网的模式进行区域划分，针对不同区域依照
+  其特征选取不同的地层构造模型。 若测井数据包含TYPE标签则不需要该步操
+  作；
+\item 按照章节\ref{sec:构造轴线与投影平面计算}计算构造轴线和剖面所在平面；
+\item 将地层倾角投影到二维平面，再用章节\ref{sec:蛛网法}中的蛛网法生成
+  二维构造剖面。
+\end{enumerate}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
