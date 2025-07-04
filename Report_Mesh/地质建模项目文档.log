@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.23)  27 JUN 2025 22:30
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.6.23)  4 JUL 2025 10:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -905,7 +905,11 @@ Class ctexart Warning: Command `\CTEXsetup' is deprecated.
 (ctexart)              is set.
 
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 153.
-(./地质建模项目文档.aux)
+(./地质建模项目文档.aux
+
+LaTeX Warning: Label `fig:极等面积网' multiply defined.
+
+)
 \openout1 = `地质建模项目文档.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
@@ -1038,15 +1042,15 @@ Package hyperref Info: Link coloring ON on input line 153.
 
 File: pic/剖面例图.jpeg Graphic file (type bmp)
 <pic/剖面例图.jpeg>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 182.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 181.
  (e:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 182.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 181.
  (e:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 182.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 181.
  (e:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
@@ -1107,14 +1111,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [4]
 File: pic/断层滑距和断距.png Graphic file (type bmp)
 <pic/断层滑距和断距.png>
-File: pic/太阳方位角.png Graphic file (type bmp)
-<pic/太阳方位角.png>
-File: pic/真倾角和视倾角.png Graphic file (type bmp)
-<pic/真倾角和视倾角.png>
-File: pic/岩层产状.png Graphic file (type bmp)
-<pic/岩层产状.png>
-File: pic/岩层产状示例.png Graphic file (type bmp)
-<pic/岩层产状示例.png>
+File: pic/断层破碎带.png Graphic file (type bmp)
+<pic/断层破碎带.png>
 
 
 
@@ -1134,10 +1132,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [6]
-File: pic/井轨迹投影.png Graphic file (type bmp)
-<pic/井轨迹投影.png>
-File: pic/井斜角和井斜方位角.png Graphic file (type bmp)
-<pic/井斜角和井斜方位角.png>
+File: pic/太阳方位角.png Graphic file (type bmp)
+<pic/太阳方位角.png>
+File: pic/真倾角和视倾角.png Graphic file (type bmp)
+<pic/真倾角和视倾角.png>
+File: pic/岩层产状.png Graphic file (type bmp)
+<pic/岩层产状.png>
+File: pic/岩层产状示例.png Graphic file (type bmp)
+<pic/岩层产状示例.png>
 
 
 
@@ -1148,34 +1150,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [7]
-File: pic/兰伯特等积投影.png Graphic file (type bmp)
-<pic/兰伯特等积投影.png>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
-
-[8]
-File: pic/施密特网.png Graphic file (type bmp)
-<pic/施密特网.png>
-File: pic/级射赤平投影图.png Graphic file (type bmp)
-<pic/级射赤平投影图.png>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
-
-[9]
-File: pic/极射赤平投影得到吴氏网.png Graphic file (type bmp)
-<pic/极射赤平投影得到吴氏网.png>
+File: pic/井轨迹投影.png Graphic file (type bmp)
+<pic/井轨迹投影.png>
+File: pic/井斜角和井斜方位角.png Graphic file (type bmp)
+<pic/井斜角和井斜方位角.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1188,9 +1166,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
+[8]
+File: pic/兰伯特投影上半球.jpg Graphic file (type bmp)
+<pic/兰伯特投影上半球.jpg>
+File: pic/兰伯特等积投影示意.jpg Graphic file (type bmp)
+<pic/兰伯特等积投影示意.jpg>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[9]
+File: pic/极等面积网投影.png Graphic file (type bmp)
+<pic/极等面积网投影.png>
+File: pic/极等面积网.png Graphic file (type bmp)
+<pic/极等面积网.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
 [10]
-File: pic/平面法向量直线投影.png Graphic file (type bmp)
-<pic/平面法向量直线投影.png>
+File: pic/单斜.jpg Graphic file (type bmp)
+<pic/单斜.jpg>
+File: pic/褶皱.jpg Graphic file (type bmp)
+<pic/褶皱.jpg>
 File: pic/褶皱构造图示.png Graphic file (type bmp)
 <pic/褶皱构造图示.png>
 
@@ -1253,79 +1261,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[16]
-File: pic/投影线尖灭.jpg Graphic file (type bmp)
-<pic/投影线尖灭.jpg>
-File: pic/剥蚀尖灭.png Graphic file (type bmp)
-<pic/剥蚀尖灭.png>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
-
-[17]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
-
-[18]
-File: pic/法线投影.jpg Graphic file (type bmp)
-<pic/法线投影.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
-
-[19]
-File: pic/法线交叉.jpg Graphic file (type bmp)
-<pic/法线交叉.jpg>
-File: pic/光滑层线.jpg Graphic file (type bmp)
-<pic/光滑层线.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
-
-[20]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.64723pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.64723pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
-
-[21] (./地质建模项目文档.aux)
+[16] (./地质建模项目文档.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `地质建模项目文档.out' has not changed.
-(rerunfilecheck)             Checksum: F2978E73DA1018C877DE4593A45A6E59;2547.
+(rerunfilecheck)             Checksum: F244C1D04930B7170D4756D672E84443;2465.
  ) 
 Here is how much of TeX's memory you used:
- 34946 strings out of 473831
- 784258 string characters out of 5733137
- 1140061 words of memory out of 5000000
- 57444 multiletter control sequences out of 15000+600000
+ 34908 strings out of 473831
+ 782547 string characters out of 5733137
+ 1140699 words of memory out of 5000000
+ 57409 multiletter control sequences out of 15000+600000
  564437 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,11n,111p,1188b,1121s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,11n,111p,1188b,1049s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 地质建模项目文档.pdf (21 pages).
+Output written on 地质建模项目文档.pdf (16 pages).
